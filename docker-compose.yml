@@ -166,6 +166,8 @@ services:
 
   ui:
     image: safeglobal/safe-wallet-web:${UI_VERSION}
+    volumes:
+      - ./storage_ui/app:/app
     env_file:
       - container_env_files/ui.env
     depends_on:
