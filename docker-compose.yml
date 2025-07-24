@@ -168,6 +168,8 @@ services:
     image: safeglobal/safe-wallet-web:${UI_VERSION}
     env_file:
       - container_env_files/ui.env
+    environment:
+      - NODE_OPTIONS=--max-old-space-size=4096
     depends_on:
       - nginx
     expose:
