@@ -81,7 +81,8 @@ services:
     image: rabbitmq:alpine
 
   txs-worker-indexer: &txs-worker
-    image: safeglobal/safe-transaction-service:${TXS_VERSION}
+    # image: safeglobal/safe-transaction-service:${TXS_VERSION}
+    image: safeglobal/safe-transaction-service@sha256:f2083440d0202deef0c8ed3a1c723b4c49461a7732e2314614126c563e9ea4b8
     env_file:
       - container_env_files/txs.env
     environment:
@@ -115,7 +116,8 @@ services:
         condition: service_healthy
 
   txs-web:
-    image: safeglobal/safe-transaction-service:${TXS_VERSION}
+    # image: safeglobal/safe-transaction-service:${TXS_VERSION}
+    image: safeglobal/safe-transaction-service@sha256:f2083440d0202deef0c8ed3a1c723b4c49461a7732e2314614126c563e9ea4b8
     env_file:
       - container_env_files/txs.env
     environment:
@@ -139,7 +141,8 @@ services:
 
   # Safe Config Service
   cfg-web:
-    image: safeglobal/safe-config-service:${CFG_VERSION}
+    # image: safeglobal/safe-config-service:${CFG_VERSION}
+    image: safeglobal/safe-config-service@sha256:433cb397fb26f54773b407687123cd94b9929dbc482462b97e19d000e57c7111
     tty: true
     volumes:
       - nginx-shared-cfg:/nginx
@@ -157,7 +160,8 @@ services:
     <<: *redishealthcheck
 
   cgw-web:
-    image: safeglobal/safe-client-gateway-nest:${CGW_VERSION}
+    # image: safeglobal/safe-client-gateway-nest:${CGW_VERSION}
+    image: safeglobal/safe-client-gateway-nest@sha256:bef4b60cfbd1ccc3b0a1ec2110ffcc38d1c6f52be3ae13f1efff3759d25ff901
     env_file:
       - container_env_files/cgw.env
     depends_on:
@@ -165,7 +169,8 @@ services:
         condition: service_healthy
 
   ui:
-    image: safeglobal/safe-wallet-web:${UI_VERSION}
+    # image: safeglobal/safe-wallet-web:${UI_VERSION}
+    image: safeglobal/safe-wallet-web@sha256:2fc3d3b11b3f1c6358025f1431f505596debe191517f3eaaeaab4702a1598b85
     env_file:
       - container_env_files/ui.env
     environment:
@@ -185,7 +190,8 @@ services:
       start_period: 15s
 
   events-web:
-    image: safeglobal/safe-events-service:${EVENTS_VERSION}
+    # image: safeglobal/safe-events-service:${EVENTS_VERSION}
+    image: safeglobal/safe-events-service@sha256:df8ecc221a5f30d7537bfb3cd13ce93966a928ffc664d929c79299a3e0266931
     env_file:
       - container_env_files/events.env
     depends_on:
